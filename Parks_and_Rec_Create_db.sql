@@ -2,11 +2,6 @@ DROP DATABASE IF EXISTS `Parks_and_Recreation`;
 CREATE DATABASE `Parks_and_Recreation`;
 USE `Parks_and_Recreation`;
 
-
-
-
-
-
 CREATE TABLE employee_demographics (
   employee_id INT NOT NULL,
   first_name VARCHAR(50),
@@ -25,7 +20,6 @@ CREATE TABLE employee_salary (
   salary INT,
   dept_id INT
 );
-
 
 INSERT INTO employee_demographics (employee_id, first_name, last_name, age, gender, birth_date)
 VALUES
@@ -56,8 +50,6 @@ VALUES
 (10, 'Andy', 'Dwyer', 'Shoe Shiner and Musician', 20000, NULL),
 (11, 'Mark', 'Brendanawicz', 'City Planner', 57000, 3),
 (12, 'Craig', 'Middlebrooks', 'Parks Director', 65000,1);
-
-
 
 CREATE TABLE parks_departments (
   department_id INT NOT NULL AUTO_INCREMENT,
