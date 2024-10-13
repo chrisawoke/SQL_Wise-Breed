@@ -58,14 +58,12 @@ ORDER BY
 -- (4). Countries with highest deaths compared to population
 SELECT 
     Location, 
-    Population,
-    MAX(total_deaths) AS Highest_death_count, 
-    ROUND(MAX((total_deaths / population) * 100), 2) AS Percent_population_death
+    MAX(CONVERT(NULLIF(total_deaths, '') , UNSIGNED)) AS Total_death_count
 FROM 
     portfoliodb.covid_deaths
--- WHERE location = 'Nigeria'
+-- WHERE continent is not null
 GROUP BY
-	Location, 
-    Population
+    Location
 ORDER BY 
-    Percent_population_death DESC;
+    Total_death_count DESC;
+
