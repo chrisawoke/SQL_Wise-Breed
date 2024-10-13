@@ -61,9 +61,22 @@ SELECT
     MAX(CONVERT(NULLIF(total_deaths, '') , UNSIGNED)) AS Total_death_count
 FROM 
     portfoliodb.covid_deaths
--- WHERE continent is not null
+-- WHERE 
+--     continent IS NOT NULL -- Ensure that the continent is specified
+--     AND Location NOT IN ('Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania', 'Antarctica') -- Exclude continents
 GROUP BY
     Location
 ORDER BY 
     Total_death_count DESC;
+
+-- (5). By Total Deaths by Continents
+SELECT 
+    continent, 
+    MAX(CONVERT(NULLIF(total_deaths, '') , UNSIGNED)) AS Total_death_count
+FROM portfoliodb.covid_deaths
+WHERE 
+    continent IS NOT NULL 
+    AND continent != ''  -- Exclude empty strings
+GROUP BY continent
+ORDER BY Total_death_count DESC;
 
