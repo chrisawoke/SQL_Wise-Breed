@@ -12,16 +12,17 @@ total_deaths, population
 FROM portfoliodb.covid_deaths
 ORDER BY location, date;
 
--- Total Cases vs Total Deaths
-
+-- Total Cases vs Total Deaths (in %) 👇
+-- This reveals the probability of dying if a person contracts covid in a particular country.
 SELECT 
     Location, 
-    date, 
-    total_cases, 
-    total_deaths,
-    ROUND((total_deaths / total_cases) * 100, 2) AS Death_Percent
+    Date, 
+    Total_cases, 
+    Total_deaths,
+    ROUND((total_deaths / total_cases) * 100, 2) AS Death_percent
 FROM 
     portfoliodb.covid_deaths
+WHERE location = 'Nigeria'
 ORDER BY 
     location, date;
 
