@@ -40,7 +40,7 @@ WHERE location = 'Nigeria'
 ORDER BY 
     location, date;
 
--- Countries with highest infection rate compared population
+-- (3). Countries with highest infection rate compared population
 SELECT 
     Location, 
     Population,
@@ -48,9 +48,24 @@ SELECT
     ROUND(MAX((total_cases / population) * 100), 2) AS Percent_population_infected
 FROM 
     portfoliodb.covid_deaths
+-- WHERE location = 'Nigeria'
 GROUP BY
 	Location, 
     Population
 ORDER BY 
     Percent_population_infected DESC;
-
+    
+-- (4). Countries with highest deaths compared to population
+SELECT 
+    Location, 
+    Population,
+    MAX(total_deaths) AS Highest_death_count, 
+    ROUND(MAX((total_deaths / population) * 100), 2) AS Percent_population_death
+FROM 
+    portfoliodb.covid_deaths
+-- WHERE location = 'Nigeria'
+GROUP BY
+	Location, 
+    Population
+ORDER BY 
+    Percent_population_death DESC;
