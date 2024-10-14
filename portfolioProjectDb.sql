@@ -10,7 +10,8 @@ SELECT location, date,
 total_cases, new_cases,
 total_deaths, population
 FROM portfoliodb.covid_deaths
-ORDER BY location, date;
+ORDER BY location, date
+LIMIT 5;
 
 -- (1). Total Cases vs Total Deaths (in %) 👇
 -- This reveals the probability of dying if a person contracts covid in a particular country.
