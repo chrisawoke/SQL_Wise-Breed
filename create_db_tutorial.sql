@@ -1,8 +1,3 @@
-SELECT *
-FROM employee_salary;
-
-SELECT *
-FROM -- create a new database db_sql_tutorial
 DROP DATABASE IF EXISTS db_sql_tutorial;
 CREATE DATABASE db_sql_tutorial;
 USE db_sql_tutorial;
